@@ -11,27 +11,24 @@ pub struct HSL {
 
 pub fn HSL.new(hue u16, saturation f32, lightness f32) !HSL {
 	if hue < 0 || hue > 360 {
-		return error("Hue must be between 0 and 360. got ${hue}")
+		return error('Hue must be between 0 and 360. got ${hue}')
 	}
 	if saturation < 0 || saturation > 100 {
-		return error("Saturation must be between 0 and 100. got ${saturation}")
+		return error('Saturation must be between 0 and 100. got ${saturation}')
 	}
 	if lightness < 0 || lightness > 100 {
-		return error("Lightness must be between 0 and 100. got ${lightness}")
+		return error('Lightness must be between 0 and 100. got ${lightness}')
 	}
 	if lightness > 100 || lightness < 0 {
 	}
 	return HSL{hue, saturation, lightness}
 }
 
-
 // rgb converts RGB to HSL
 pub fn (c &HSL) rgb() RGB {
 	h := f32(c.hue) / 360
 	s := c.saturation / 100
-	dump(s)
 	l := c.lightness / 100
-	dump(l)
 
 	if s == 0 {
 		col := u8(math.round(l * 255))
@@ -67,12 +64,11 @@ pub fn (c &HSL) rgb() RGB {
 		} else if 2 * t3 < 1 {
 			t1
 		} else if 3 * t3 < 2 {
-			t2 + (t1 - t2) * (2 / 3 - t3) * 6
+			t2 + (t1 - t2) * (2.0 / 3 - t3) * 6
 		} else {
 			t2
 		}
 
-		dump(col)
 		rgb[i] = u8(math.round(col * 255))
 	}
 

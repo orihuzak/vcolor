@@ -2,7 +2,7 @@ module main
 
 import vcolor as vc
 
-fn main( ) {
+fn main() {
 	c := vc.RGB{
 		r: 126
 		g: 71
