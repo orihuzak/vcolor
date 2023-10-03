@@ -17,11 +17,11 @@ fn test_rgb() {
 	assert c.rgb() == RGB{126, 71, 228}
 }
 
-fn test_rotate() { // TODO
+fn test_rotate() {
 	a := HSL.new(0, 100, 50)!
 	b := HSL.new(180, 100, 50)!
 	c := HSL.new(261, 74.4, 58.6)!
 	assert a.rotate(180) == b
-	assert a.rotate(180) == a.rgb().invert().hsl()
-	// assert c.rotate(180) == c.rgb().invert().hsl()
+	assert a.rotate(180) == a.rgb().complementary().hsl()
+	// assert c.rotate(180) == c.rgb().complementary().hsl()
 }

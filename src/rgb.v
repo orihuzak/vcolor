@@ -58,12 +58,22 @@ pub fn (c &RGB) complementary() RGB {
 	}
 }
 
-pub fn (c &RGB) info() string {
-	return '${term.bg_rgb(c.r, c.g, c.b, vcolor.bar)} R:${c.r:03} G:${c.g:03} B:${c.b:03} HEX:${c.hex()}'
+pub fn (c &RGB) triadic() []RGB {
+	return [c.hsl().rotate(120).rgb(), c.hsl().rotate(-120).rgb()]
 }
 
-pub fn (c &RGB) hex() string {
-	return '#${c.r.hex()}${c.g.hex()}${c.b.hex()}'
+pub fn (c &RGB) analogous() []RGB {
+	return [c.hsl().rotate(30).rgb(), c.hsl().rotate(-30).rgb()]
+}
+
+pub fn (c &RGB) tetradic() []RGB {
+	return [c.hsl().rotate(60).rgb(), c.hsl().rotate(180).rgb(),
+		c.hsl().rotate(240).rgb()]
+}
+
+pub fn (c &RGB) square() []RGB {
+	return [c.hsl().rotate(90).rgb(), c.hsl().rotate(180).rgb(),
+		c.hsl().rotate(270).rgb()]
 }
 
 //

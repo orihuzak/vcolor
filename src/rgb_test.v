@@ -31,3 +31,7 @@ fn test_complementary() {
 fn test_hex() {
 	assert vcolor.c.hex() == '#7e47e4'
 }
+
+fn test_triadic() {
+	assert c.triadic() == [RGB{228, 126, 71}, RGB{71, 228, 126}]
+}
