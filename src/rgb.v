@@ -2,6 +2,7 @@ module vcolor
 
 import term
 import math.stats
+import encoding.hex as enchex
 
 const (
 	bar = '          '
@@ -13,6 +14,27 @@ pub struct RGB {
 	r u8
 	g u8
 	b u8
+}
+
+pub fn RGB.from_hex(hex string) !RGB {
+	h := if hex[0] == `#` {
+		enchex.decode(hex[1..])!
+	} else {
+		enchex.decode(hex)!
+	}
+	return RGB{
+		r: h[0]
+		g: h[1]
+		b: h[2]
+	}
+}
+
+pub fn (c &RGB) info() string {
+	return '${term.bg_rgb(c.r, c.g, c.b, vcolor.bar)} R:${c.r:03} G:${c.g:03} B:${c.b:03} HEX:${c.hex()}'
+}
+
+pub fn (c &RGB) hex() string {
+	return '#${c.r.hex()}${c.g.hex()}${c.b.hex()}'
 }
 
 // 反転色
