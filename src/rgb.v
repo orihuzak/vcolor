@@ -85,5 +85,5 @@ pub fn (c &RGB) hsl() HSL {
 		s = delta / (2 - max - min)
 	}
 
-	return HSL{u16(h), s * 100, l * 100}
+	return HSL{i16(h), s * 100, l * 100}
 }

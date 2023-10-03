@@ -4,12 +4,12 @@ import math
 
 [noinit]
 pub struct HSL {
-	hue        u16
+	hue        i16
 	saturation f32
 	lightness  f32
 }
 
-pub fn HSL.new(hue u16, saturation f32, lightness f32) !HSL {
+pub fn HSL.new(hue i16, saturation f32, lightness f32) !HSL {
 	if hue < 0 || hue > 360 {
 		return error('Hue must be between 0 and 360. got ${hue}')
 	}
@@ -75,7 +75,7 @@ pub fn (c &HSL) rgb() RGB {
 	return RGB{rgb[0], rgb[1], rgb[2]}
 }
 
-pub fn (c &HSL) rotate(degrees u16) HSL {
+pub fn (c &HSL) rotate(degrees i16) HSL {
 	hue := (c.hue + degrees) % 360
 	return HSL{
 		hue: if hue < 0 { 360 + hue } else { hue }
