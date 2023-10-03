@@ -19,8 +19,6 @@ pub fn HSL.new(hue i16, saturation f32, lightness f32) !HSL {
 	if lightness < 0 || lightness > 100 {
 		return error('Lightness must be between 0 and 100. got ${lightness}')
 	}
-	if lightness > 100 || lightness < 0 {
-	}
 	return HSL{hue, saturation, lightness}
 }
 
