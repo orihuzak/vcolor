@@ -7,4 +7,3 @@ Color library for V
 - https://github.com/etoxin/complementary-colors
 - https://www.niwa.nu/2013/05/math-behind-colorspace-conversions-rgb-hsl/
 
-## TODO
