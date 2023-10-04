@@ -37,7 +37,7 @@ pub fn (c &RGB) hex() string {
 	return '#${c.r.hex()}${c.g.hex()}${c.b.hex()}'
 }
 
-pub fn (c &RGB) css() RGB {
+pub fn (c &RGB) css() string {
 	return 'rgb(${c.r}, ${c.g}, ${c.b})'
 }
 
