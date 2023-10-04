@@ -30,11 +30,15 @@ pub fn RGB.from_hex(hex string) !RGB {
 }
 
 pub fn (c &RGB) info() string {
-	return '${term.bg_rgb(c.r, c.g, c.b, vcolor.bar)} R:${c.r:03} G:${c.g:03} B:${c.b:03} HEX:${c.hex()}'
+	return '${term.bg_rgb(c.r, c.g, c.b, vcolor.bar)} ${c.css()} ${c.hex()}'
 }
 
 pub fn (c &RGB) hex() string {
 	return '#${c.r.hex()}${c.g.hex()}${c.b.hex()}'
+}
+
+pub fn (c &RGB) css() RGB {
+	return 'rgb(${c.r}, ${c.g}, ${c.b})'
 }
 
 // 反転色
