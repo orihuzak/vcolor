@@ -30,7 +30,7 @@ pub fn RGB.from_hex(hex string) !RGB {
 }
 
 pub fn (c &RGB) info() string {
-	return '${term.bg_rgb(c.r, c.g, c.b, vcolor.bar)} ${c.css()} ${c.hex()}'
+	return '${term.bg_rgb(c.r, c.g, c.b, vcolor.bar)} ${c.hex()} ${c.css()}'
 }
 
 pub fn (c &RGB) hex() string {
