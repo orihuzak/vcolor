@@ -76,7 +76,6 @@ pub fn (c &RGB) square() []RGB {
 		c.hsl().rotate(270).rgb()]
 }
 
-//
 pub fn (c &RGB) hsl() HSL {
 	r := f32(c.r) / 255
 	g := f32(c.g) / 255

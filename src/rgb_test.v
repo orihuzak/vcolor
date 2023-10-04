@@ -33,5 +33,5 @@ fn test_hex() {
 }
 
 fn test_triadic() {
-	assert c.triadic() == [RGB{228, 126, 71}, RGB{71, 228, 126}]
+	assert vcolor.c.triadic() == [RGB{228, 126, 71}, RGB{71, 228, 126}]
 }
